@@ -1,0 +1,70 @@
+{% extends "admin/base_site.html" %}
+{% load staticfiles %}
+
+{% block title%} {{title}}{%endblock%}
+
+
+{% block content %}
+
+	
+
+
+{% if title == "Unidad o Propiedad no encontrada" %}
+	
+		<div>
+		<a href="{%url 'Propiedad:Solicitud_listar' %}" class="btn btn-success ribbon1 base">Ver mis propiedades</a>
+		{# <br> #}
+	</div>	
+{% else %}
+{% include "Propiedad/InfoUnidad.html" %}
+<h2>Facturas:</h2>
+{% if object_list %}
+	<div class="table-responsivse scrolltable">          
+		  <table class="table table-striped table-bordered table-hover table-condensed">
+		    <thead>
+		      <tr>
+		      	<td><a href="">#</a></td>
+		        {# <th><a href="">Propiedad</a></th> #}
+		        <th><a href="">Num Recibo</a></th>
+		        <th><a href="">Descripcion</a></th>
+		        <th><a href="">Fecha cobro</a></th>
+		        <th><a href="">Estado</a></th>
+		        <th><a href="">Acciones</a></th>
+		        {# <th><a href="">Responsable</a></th> #}
+		        {# <th><a href="">Estado</a></th> #}
+		        {# <th><a href="">Dia Corte</a></th> #}
+		        {# <th><a href="">Acciones</a></th> #}
+		    
+		      </tr>
+		    </thead>
+		    <tbody>
+		    	{% for recibo in object_list   %}	    	
+		    	<tr>
+		    		<td>{{forloop.counter}}</td>
+		    		<td>
+		    		{{recibo.numConsecutivo}}</td>
+		    		<td>{{recibo.descripcion}}</td>
+		    		<td>{{ recibo.fecha_cobrada|date:"F Y" }} {# {{recibo.fecha_cobrada}} #}</td>
+		    		<td>{{recibo.estado}}</td>
+		    		<td>
+		    			<div class="btn-group">
+     						 <a href="{% url 'Propiedad:Solicitud_pagosdetalle' DatosUnidad.propiedad.idlegal DatosUnidad.id 2 %}"><button type="button" class="btn btn-success">Ver Recibo</button></a>
+     						 {# <a href="\..\admin/edificios/unidad/{{datos.id}}/change/">  #}
+     						 {# <button type="button" class="btn btn-danger">Eliminar</button> #}
+     						{# </a> #}
+     					</div>
+		    		</td>
+		    	</tr>
+		    {% endfor %}
+		    </tbody>
+		</table>
+	</div>
+
+{% else %}
+	no hay Recibos
+	{% endif %}
+
+{% endif %}
+
+{# {% include "Pagos/formatoFactura.html" %} #}
+{% endblock %}

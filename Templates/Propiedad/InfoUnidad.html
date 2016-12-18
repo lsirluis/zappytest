@@ -1,0 +1,86 @@
+{# <img class="imgpropiedades" src="/media/{{DatosPropiedad.Imagen}}" WIDTH=200 HEIGHT=200 > #}
+<table class="table tbottom"  border="0px">
+	<thead>
+		<tr>
+			<th class="tr1">
+				{# Imagen #}
+			</th>
+			<th class="tr2" colspan="2">
+				{# Ficha #}
+			</th>
+			<th class="tr3" colspan="2">
+				{# Estadistica #}
+			</th>
+			<th class="tr4"></th>
+			<th class="tr5" >
+				{# Acciones #}
+			</th>
+		</tr>
+	</thead>
+	          	<div class="ribbon base"></div>
+
+	<tbody>
+		<tr class="trh">
+			<td rowspan="4">
+				<img class="imgpropiedades" src="/media/{{DatosPropiedad.Imagen}}" WIDTH=200 HEIGHT=200 >
+			</td>
+			<td class="tup">
+				<b>Unidad en la Propiedad :</b>
+			</td>
+			<td  class="text-center tup">
+				<a href="{% url 'Propiedad:Solicitud_apartamentos' DatosUnidad.propiedad.idlegal %}">{{DatosUnidad.propiedad.nombre}}</a>
+			</td>
+			<td class="tup"><b> Estado pago</b></td>
+			<td class="tup"> <span class="active"> Al dia</span>
+				
+			</td>
+			<td></td>
+			<td>
+				<div class="btn-group">
+     			 <a href=""> 
+     			 <button type="button" class="btn btn-success btntd">Editar</button>
+     			</a>
+     			 <a href=""> 
+     			 <button type="button" class="btn btn-danger btntd">Cartera</button>
+     			</a>
+						
+				</div> 
+
+
+              </td>
+		</tr>
+
+
+		<tr class="trh">
+			<td class="tup"><b>Torre</b></td>
+			<td class="text-center tup">{{DatosUnidad.torre}}</td>
+			<td class="tup">{# Estadistica 1 #}</td>
+			<td class="tup">{# Estadistica 2 #}</td>
+			<td></td>
+			<td>
+				<div class="btn-group">
+     			 <a href=""> 
+     			 <button type="button" class="btn btn-success btntd">Facturas</button>
+     			</a>
+     			 <a href=""> 
+     			 <button type="button" class="btn btn-danger btntd">Banco</button>
+     			</a>
+						
+				</div> 
+              </td>
+		</tr>
+		<tr class="trh">
+			<td class="tup"><b>#Unidad :</b></td>
+			<td class="text-center tup">{{DatosUnidad.numero}}</td>
+			<td class="tup">{# Estadistica 1 #}</td>
+			<td class="tup">{# Estadistica 2 #}</td>
+			<td></td>
+			<td></td>
+			{# <td></td> #}
+		</tr>
+		<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+
+		
+	</tbody>
+</table>
